@@ -1,0 +1,85 @@
+@import "variables";
+
+html {
+  overflow-y: scroll;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: $body-bg;
+  padding: 50px;
+  margin: 0;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+@media (max-width: 980px) {
+  body {
+    padding: 0;
+  }
+}
+
+h1 {
+  color: $white;
+  font-size: 40px;
+  text-align: center;
+  margin: 40px;
+  width: 100%;
+}
+
+h2 {
+  color: $white;
+  font-size: 30px;
+  text-align: center;
+  width: 100%;
+}
+
+@media (max-width: 420px) {
+  h1, h2 {
+    font-size: 28px;
+  }
+}
+
+footer {
+  text-align: center;
+  color: $white;
+  margin: 50px;
+  font-size: 20px;
+}
+
+input, select {
+  margin: 5px 0;
+  padding: 10px;
+  background-color: transparent;
+  border: 2px solid $main;
+  border-radius: 5px;
+  color: $main;
+  font-size: 18px;
+  outline: none;
+}
+
+input {
+  min-width: 250px;
+}
+
+@media (max-width: 420px) {
+  input {
+    min-width: 150px;
+  }
+}
+
+select {
+  min-width: 150px;
+  margin: 5px;
+}
+
+input:focus {
+  outline: none;
+  background-color: $form-bg-light;
+}
+
+label, p {
+  color: $white;
+  width: 100%;
+  text-align: center;
+}

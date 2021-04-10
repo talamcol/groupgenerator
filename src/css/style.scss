@@ -1,0 +1,63 @@
+@import "variables";
+
+@import "generalTags";
+@import "overlay";
+@import "teams";
+
+.appContainer {
+  background: rgba($form-bg, .8);
+  border-radius: $br;
+  box-shadow: 0 4px 10px 4px rgba($form-bg, .3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.secondaryContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  margin: 10px;
+  background-color: $form-bg;
+  width: 50%;
+  max-width: 500px;
+}
+@media (max-width: 980px) {
+  .secondaryContainer {
+    width: 80%;
+  }
+}
+
+.button {
+  cursor: pointer;
+  border: 0;
+  margin: 30px;
+  outline: none;
+  border-radius: 0;
+  padding: 20px;
+  font-size: 2rem;
+  font-weight: $bold;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  background: $main;
+  color: $white;
+
+  &:hover, &:focus {
+    background: $main-dark;
+  }
+
+  &:disabled {
+    background: lightgrey;
+    cursor: not-allowed;
+    color: $form-bg;
+  }
+}
+
+.icon-button {
+  background-color: transparent;
+  border: none;
+  color: $main;
+  font-size: 25px;
+  cursor: pointer;
+}

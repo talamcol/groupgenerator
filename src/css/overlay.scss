@@ -1,0 +1,32 @@
+@import "variables";
+
+.overlay {
+  position: fixed;
+  background-color: $gray-light;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: hidden;
+}
+
+.value {
+  font-weight: $bold;
+  color: $white;
+  font-size: 150px;
+}
+
+
+@media (max-width: 420px) {
+  .value {
+    font-size: 70px;
+  }
+}
+
+.upper {
+  text-transform: uppercase;
+}

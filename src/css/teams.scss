@@ -1,0 +1,29 @@
+@import "variables";
+
+.teams {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+
+@media (max-width: 420px) {
+  .teams {
+    flex-direction: column;
+  }
+}
+
+.team {
+  color: $white;
+  letter-spacing: .1em;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.heading {
+  margin-top: 50px;
+  font-size: 2rem;
+  font-weight: $bold;
+  text-transform: uppercase;
+}
