@@ -42,8 +42,8 @@ import Team from "./components/Team"
 import PersonAdder from "./components/PersonAdder"
 import ConstraintAdder from "./components/ConstraintAdder"
 import {mapState, mapActions, mapGetters} from "vuex";
-import {validateTeams} from "@/utils/teamValidator";
-import {splitArrayInEqualParts} from "@/utils/arrayUtils";
+import {validateTeams} from "./utils/teamValidator";
+import {splitArrayInEqualParts} from "./utils/arrayUtils";
 
 export default {
   name: 'app',
@@ -76,14 +76,20 @@ export default {
     ...mapActions(["addTeamsToTeamHistory"]),
     shuffle() {
       let temporaryTeams = []
-      while (!validateTeams(temporaryTeams, this.parts, this.constraints)) {
+      let counter = 0
+      while (!validateTeams(temporaryTeams, this.parts, this.constraints) && counter < 200) {
+        counter++
         this.personsAsNames.sort(() => Math.random() - 0.5);
         temporaryTeams = splitArrayInEqualParts(this.personsAsNames, this.parts)
-        console.log(temporaryTeams)
       }
-      this.revealTeam(temporaryTeams);
-      this.addTeamsToTeamHistory(temporaryTeams);
-      this.teams = temporaryTeams;
+      if (counter === 200) {
+        alert("Too many constraints")
+      } else {
+        this.revealTeam(temporaryTeams);
+        this.addTeamsToTeamHistory(temporaryTeams);
+        this.teams = temporaryTeams;
+      }
+
     },
     delayForCountdown() {
       return new Promise((resolve) => {
@@ -94,7 +100,6 @@ export default {
     },
     revealTeam(teams) {
       let completeArray = [];
-      completeArray.push('Ooh yeees')
       for (let i = 0; i < teams.length; i++) {
         completeArray.push('Team ' + (i + 1));
         teams[i].forEach(member => {

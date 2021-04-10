@@ -12,6 +12,7 @@
         <span class="mdi mdi-trash-can" />
       </button>
       <button
+        data-testid="addPersonButton"
         class="icon-button"
         v-if="i === persons.length - 1"
         @click="addPerson()"

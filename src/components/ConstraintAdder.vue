@@ -18,6 +18,7 @@
             :key="j"
             :value="person.name"
             :label="person.name"
+            :disabled="person.name === constraint.personB"
           />
         </select>
         <select
@@ -30,6 +31,7 @@
             :key="k"
             :value="person.name"
             :label="person.name"
+            :disabled="person.name === constraint.personA"
           />
         </select>
       </div>
