@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    persons: [{ name: "" }],
+    participants: [{ name: "" }],
     constraints: [
       {
         personA: "",
@@ -16,13 +16,13 @@ export default new Vuex.Store({
   },
   mutations: {
     addPerson(state, person) {
-      state.persons.push(person);
+      state.participants.push(person);
     },
     removePerson(state, index) {
-      if (state.persons.length === 1) {
-        state.persons[0].name = "";
+      if (state.participants.length === 1) {
+        state.participants[0].name = "";
       } else {
-        state.persons.splice(index, 1);
+        state.participants.splice(index, 1);
       }
     },
     addConstraint(state, constraint) {
@@ -36,8 +36,8 @@ export default new Vuex.Store({
         state.constraints.splice(index, 1);
       }
     },
-    resetPersons(state) {
-      state.persons.length = 0;
+    resetParticipants(state) {
+      state.participants.length = 0;
     },
     resetConstraints(state) {
       state.constraints.length = 0;
@@ -53,8 +53,8 @@ export default new Vuex.Store({
     removePerson({ commit }, index) {
       commit("removePerson", index);
     },
-    resetPersons({ commit }) {
-      commit("resetPersons");
+    resetParticipants({ commit }) {
+      commit("resetParticipants");
     },
     addConstraint({ commit }, constraint) {
       commit(
@@ -76,8 +76,8 @@ export default new Vuex.Store({
     },
   },
   getters: {
-    personsAsNames: (state) => {
-      return state.persons
+    participantsAsNames: (state) => {
+      return state.participants
         .filter((person) => person.name !== "")
         .map((person) => person.name);
     },

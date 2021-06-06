@@ -26,12 +26,29 @@ describe("Array utils", () => {
     ]);
   });
 
-  it("should create 2 teams with 2 persons and one team with 1 person", () => {
+  it("should create 2 teams with 2 participants and one team with 1 person", () => {
     const arrayToSplit = ["Markus", "Rolf", "Maik", "Jelena", "Ruby"];
     expect(splitArrayInEqualParts(arrayToSplit, 3)).toEqual([
       ["Markus", "Rolf"],
       ["Maik", "Jelena"],
       ["Ruby"],
+    ]);
+  });
+
+  it("should create 2 teams with 2 participants and one team with 3 person", () => {
+    const arrayToSplit = [
+      "Markus",
+      "Rolf",
+      "Maik",
+      "Jelena",
+      "Ruby",
+      "David",
+      "Colin",
+    ];
+    expect(splitArrayInEqualParts(arrayToSplit, 3)).toEqual([
+      ["Markus", "Rolf"],
+      ["Maik", "Jelena"],
+      ["Ruby", "David", "Colin"],
     ]);
   });
 });

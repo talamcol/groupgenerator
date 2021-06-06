@@ -16,20 +16,20 @@
         {{ buttonText }}
       </button>
     </div>
-    <div class="optionsContainer">
-      <PersonAdder/>
-      <ConstraintAdder/>
-    </div>
-
-
-    <TeamOverlay :value="value" :showOverlay="overlay"/>
-    <Countdown v-if="showCountdown" :startValue="5" @countdownFinished="showCountdown = false"/>
 
     <div class="teams">
       <div v-for="(team, i) in teams" :key="i">
         <Team :teamNumber="i+1" :teamMembers="team"/>
       </div>
     </div>
+
+    <div class="optionsContainer">
+      <PersonAdder/>
+      <ConstraintAdder/>
+    </div>
+
+    <TeamOverlay :value="value" :showOverlay="overlay"/>
+    <Countdown v-if="showCountdown" :startValue="5" @countdownFinished="showCountdown = false"/>
 
     <footer>Made with &#10084 by Colin</footer>
   </div>
@@ -60,13 +60,13 @@ export default {
     showCountdown: false,
     teams: [],
     parts: 3,
-    duration: 3
+    duration: 1
   }),
   computed: {
     ...mapState(["constraints", "teamHistory"]),
-    ...mapGetters(["personsAsNames"]),
+    ...mapGetters(["participantsAsNames"]),
     buttonDisabled() {
-      return this.parts > this.personsAsNames.length
+      return this.parts > this.participantsAsNames.length
     },
     buttonText() {
       return this.buttonDisabled ? "Not enough people" : "Shuffle team"
@@ -79,8 +79,8 @@ export default {
       let counter = 0
       while (!validateTeams(temporaryTeams, this.parts, this.constraints) && counter < 200) {
         counter++
-        this.personsAsNames.sort(() => Math.random() - 0.5);
-        temporaryTeams = splitArrayInEqualParts(this.personsAsNames, this.parts)
+        this.participantsAsNames.sort(() => Math.random() - 0.5);
+        temporaryTeams = splitArrayInEqualParts(this.participantsAsNames, this.parts)
       }
       if (counter === 200) {
         alert("Too many constraints")
