@@ -16,7 +16,9 @@
         <button
           data-testid="addPersonButton"
           class="icon-button plus-button"
-          v-if="i === participants.length - 1"
+          v-if="
+            i === participants.length - 1 && participants[i].name.length >= 1
+          "
           @click="addPerson()"
         >
           <span class="mdi mdi-plus" />

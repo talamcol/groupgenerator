@@ -9,8 +9,9 @@ html {
 body {
   background: $body-bg;
   padding: 50px;
-  margin: 0;
   font-family: 'Titillium Web', sans-serif;
+  max-width: 1500px;
+  margin: auto;
 }
 
 @media (max-width: 980px) {
@@ -59,17 +60,7 @@ input, select {
   outline: none;
 }
 
-input {
-  min-width: 250px;
-}
-
-@media (max-width: 420px) {
-  input {
-    min-width: 120px;
-  }
-}
-
-@media (max-width: 350px) {
+@media (max-width: 450px) {
   input {
     width: 160px;
   }

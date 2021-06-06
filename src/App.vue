@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="appContainer">
-    <h1>&#10084 Group generator &#10084</h1>
+    <h1>Group generator</h1>
     <div class="generalOptionsContainer">
       <div class="fieldWithLabel">
         <label for="parts">How many teams do you want?</label>

@@ -73,7 +73,7 @@ export default {
   display: flex;
 }
 
-@media (max-width: 420px) {
+@media (max-width: 500px) {
   .fields {
     flex-direction: column;
   }
