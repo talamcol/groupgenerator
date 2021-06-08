@@ -111,17 +111,12 @@ export default {
       this.overlay = true;
       this.showCountdown = true;
       this.delayForCountdown().then(() => {
-        let audio = new Audio(require('@/Europe_TheFinalCountdown.mp3'));
-        audio.play();
         (function loop() {
           that.value = completeArray[i];
           if (++i <= completeArray.length) {
             setTimeout(loop, (that.duration * 1000) > 1000 ? (that.duration * 1000) : 1000);
           } else {
             that.overlay = false;
-            setTimeout(function () {
-              audio.pause();
-            }, 5000)
           }
         })();
       })

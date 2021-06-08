@@ -4,7 +4,7 @@ For everyone who wants to shuffle a group of people into equally distributed tea
 Don't forget to turn your volume up!
 
 ## website
-todo
+https://groupgenerator.netlify.app/
 
 ## development
 ### preconditions
